@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h1 {
+      /* 콘텐츠 박스의 크기는 몇일까요? */
+      /* 100 x 100 */
+      /* 콘텐츠 박스를 강제로 지정해놓은 상태에서, 
+         콘텐츠가 콘텐츠 박스보다 길어지면 넘쳐요 */
+      /* 콘텐츠가 넘친 상황: overflow */
+      /* 콘텐츠가 넘치지 않은 상황: normal flow */
+      /* 우리가 얻을 수 있는 교훈 */
+      /* 1. 콘텐츠의 길이를 알 수 없다면 height 정하지 말자 */
+      /* 2. 만약 height를 영 고정해야한다면, overflow를 제어하자 */
+      /* overflow: auto; */
+      /* width도 간혹 넘친다... */
+
+      /* 보더 박스의 크기는 몇일까요? */
+      /* 132 x 132 */
+      width: 100px;
+      height: 100px;
+      padding: 15px;
+      border: 1px solid #eee;
+      margin: 15px;
+    }
+
+    .box {
+      padding: 15px;
+      border: 1px solid #eee;
+    }
+
+    .absolute {
+      position: absolute;
+      background: royalblue;
+      right: 0;
+      bottom: 0;
+    }
+
+    .fixed {
+      position: fixed;
+      background: crimson;
+      right: 0;
+      top: 0;
+    }
+
+    .container {
+      background: #666;
+      /* 부모 요소에 padding을 주면 margin-collapse를 없앨 수 있음 */
+      padding: 0.1px;
+    }
+
+    .sticky {
+      /* box-sizing: content-box */
+      /* 132 x 132 */
+      /* box-sizing: border-box */
+      /* 100 x 100 */
+      width: 100px;
+      height: 100px;
+      padding: 15px;
+      border: 1px solid #eee;
+      margin: 15px;
+    }
+
+    /* 두 번째 요소부터 margin-top을 준다 */
+    .sticky + .sticky {
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <!-- <h1>
+    <div class="box">
+      <div class="box">
+        <div class="box fixed"></div>
+      </div>
+    </div>
+  </h1> -->
+  <!-- <p>내용 <strong>내용</strong> 내용 내용</p> -->
+  <div class="container">
+    <div class="sticky"></div>
+    <div class="sticky"></div>
+    <div class="sticky"></div>
+    <div class="sticky"></div>
+    <div class="sticky"></div>
+    <div class="sticky"></div>
+  </div>
+</body>
+</html>
